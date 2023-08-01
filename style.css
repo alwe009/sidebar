@@ -16,7 +16,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 260px;
+  width: 110px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -25,6 +25,10 @@ body {
   backdrop-filter: blur(17px);
   -webkit-backdrop-filter: blur(17px);
   border-right: 1px solid rgba(255, 255, 255, 0.2);
+  transition: width 0.3s ease;
+}
+.sidebar:hover {
+  width: 260px;
 }
 .sidebar .logo {
   display: flex;
@@ -39,22 +43,48 @@ body {
   font-size: 1.15rem;
   font-weight: 600;
   margin-left: 15px;
+  display: none;
+}
+.sidebar:hover .logo h2 {
+  display: block;
 }
 .sidebar .links {
+  height: calc(100% -140px);
+  overflow-y: auto;
+  scrollbar-width: none;
   list-style: none;
   margin-top: 20px;
+}
+.sidebar .links::-webkit-scrollbar {
+  display: none;
 }
 .sidebar .links h4 {
   color: #222;
   font-weight: 500;
   margin-bottom: 10px;
+  display: none;
+}
+.sidebar:hover .links h4 {
+  display: block;
 }
 .links li {
   display: flex;
   align-items: center;
 }
+.links li:hover {
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.links hr {
+  border-color: #4c4c4c;
+  margin: 10px 8px;
+}
+.sidebar:hover .links hr {
+  border-color: transparent;
+}
 .links li span {
-  padding: 12px;
+  padding: 12px 10px;
 }
 .links li a {
   color: #000;
@@ -62,4 +92,8 @@ body {
   font-weight: 500;
   white-space: nowrap;
   text-decoration: none;
+  display: none;
+}
+.sidebar:hover .links li a {
+  display: block;
 }
